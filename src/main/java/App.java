@@ -1,30 +1,29 @@
 package main.java;
+
 import java.util.Scanner;
 
 public class App {
-        //Comentário
 
-    public static void funcao_teste (){
-        //Biblioteca para entrada de dados
-        Scanner ler = new Scanner(System.in); 
-
-        //variável local a
-        String v2;
-        int v1;
-
-        System.out.println("Comando de Saida de Dados");
-        
-        System.out.printf("Informe uma palavra: ");
-        v2 = ler.next();
-
-        System.out.printf("Informe um número: ");
-        v1 = ler.nextInt();
-
-        System.out.printf(v2+" "+v1);
-    }
     public static void main(String[] args) throws Exception {
-        funcao_teste();
+        // 1. Leitura dos dados do usuário
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Digite a Massa (kg): ");
+        float massa = scanner.nextFloat();
 
+        System.out.print("Digite a Altura (m): ");
+        float altura = scanner.nextFloat();
+
+        scanner.close(); // Fechar o Scanner após a leitura
+
+        // 2. Criação do objeto CorpoHumano e cálculo do IMC
+        CorpoHumano corpo = new CorpoHumano();
+        corpo.setMassa(massa);
+        corpo.setAltura(altura);
+
+        double imc = corpo.calcularIMC();
+
+        // 3. Exibição do resultado
+        System.out.println("IMC calculado: " + imc);
     }
 }
